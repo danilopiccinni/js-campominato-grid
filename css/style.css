@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+h1 {
+    font-size: 35px;
+    align-self: center;
+}
+
+.nav-sinistro {
+    display: flex;
+    gap: 10px;
+}
+
+main {
+    height: calc(100vh - 130px);
+    background-color: #80ffd3;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
