@@ -52,6 +52,8 @@ buttonEl.addEventListener ('click' , function() {
             outputEl.style.height = 'calc(50px * 9)';
         } else {
             numerocelle = 100
+            outputEl.style.width = 'calc(50px * 10)';
+            outputEl.style.height = 'calc(50px * 10)';
         }
 
         outputEl.innerHTML= ''
