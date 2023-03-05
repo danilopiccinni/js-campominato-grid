@@ -26,51 +26,37 @@ Aggiungere una select accanto al bottone di generazione, che fornisca una scelta
 - con difficoltà 3 => 49 caselle, con un numero compreso tra 1 e 49, divise in 7 caselle per 7 righe;
 */
 
-//output
+//output...bersagliato tramite id dal documento (HTML: il contenitore della fututra gliglia)
 let outputEl = document.getElementById ('output-griglia')
-
-//bottone
+//bottone...bersasgliato tramite id dal documento (HTML: bottone play che avvia il gioco)
 let buttonEl = document.getElementById ('play-button')
 
 
-//evento click sul bottone
+//evento click sul bottone avvio gioco
 buttonEl.addEventListener ('click' , function() {
+    // dichiaro e memorizzo la difficolta calcolata con una function una function 
+    let difficolta = rilevaDifficolta()
+    // diachiaro e memrizzo il numero di celle calcolando con una function
+    let numerocelle = calcolaCelle(difficolta)
+    // per pulire la criglia a ogni click (nel caso si cambi la difficolta)
+    outputEl.innerHTML= ''
 
-    let difficoltaEl = document.getElementById ('difficolta')
-    let difficolta = difficoltaEl.value
-    let numerocelle;
-
-    if (difficolta == 0) {
-        alert('Scegli una difficoltà per iniziare')
-    } else if (difficolta == 3) {
-        numerocelle = 49
-        outputEl.style.width = 'calc(50px * 7)';
-        outputEl.style.height = 'calc(50px * 7)';
-        } else if (difficolta == 2) {
-            numerocelle = 81
-            outputEl.style.width = 'calc(50px * 9)';
-            outputEl.style.height = 'calc(50px * 9)';
-        } else {
-            numerocelle = 100
-            outputEl.style.width = 'calc(50px * 10)';
-            outputEl.style.height = 'calc(50px * 10)';
-        }
-
-        outputEl.innerHTML= ''
-
-    //ciclo per creare le 100 celle che formano la griglia
+    //ciclo per creare le celle che formano la griglia
     for (let i = 1 ; i <= numerocelle ; i++) {
-
+        // dichiaro la cella creeandola con una function
         let casella = creacella(i)
-
-
+        // evento click sulla singola cella 
         casella.addEventListener ('click' , function() {
-
+            // funzione creata per selezionare e segnare il valore
             selezionaEprendiValore(casella)
-           
+            
         })
     }   
 })
+
+
+
+// -------------------funzioni------------------------
 
 function creacella(numerocelle) {
 
@@ -85,14 +71,76 @@ function creacella(numerocelle) {
 
 function selezionaEprendiValore(casella) {
 
-    casella.classList.toggle ('celeste')
+    casella.classList.toggle ('verde')
     console.log (casella.innerText)  
 
 }
 
+function diventaNera(casella) {
 
+    casella.classList.toggle ('nera')
 
+}
 
+function rilevaDifficolta() {
 
+    let difficoltaEl = document.getElementById ('difficolta')
+    let difficolta = difficoltaEl.value
+
+    return difficolta 
+
+}
+
+function calcolaCelle (difficolta) {
+
+    let numerocelle
+
+    if (difficolta == 0) {
     
+        alert('Scegli una difficoltà per iniziare')
+    } 
+        
+    if (difficolta == 3) {
+        numerocelle = 49
+        outputEl.style.width = 'calc(50px * 7 + 10px)';
+        outputEl.style.height = 'calc(50px * 7 + 10px)';
+        outputEl.style.border = '5px double rgb(141, 141, 141)';
+    }
+    if (difficolta == 2) {
+        numerocelle = 81
+        outputEl.style.width = 'calc(50px * 9 + 10px)';
+        outputEl.style.height = 'calc(50px * 9 + 10px)';
+        outputEl.style.border = '5px double rgb(141, 141, 141)';
+    } 
     
+    if (difficolta ==1){
+        numerocelle = 100
+        outputEl.style.width = 'calc(50px * 10 + 10px)';
+        outputEl.style.height = 'calc(50px * 10 + 10px)';
+        outputEl.style.border = '5px double rgb(141, 141, 141)';
+    }
+
+    return numerocelle
+}
+
+// -------------------/ funzioni------------------------
+
+
+
+
+
+
+// ---------------click tasto destro----------------
+
+// casella.addEventListener('contextmenu', doRightClick, false);
+        
+// function doRightClick(ev) {
+//     ev = ev || window.event;
+//     ev.preventDefault();  // evito che intervenga il comportamento di default, l'apertura del menu
+    
+//     diventaNera (casella)
+//     //TODO: qui faccio quello che mi serve
+//     return false;
+// }
+
+// ---------------/ click tasto destro----------------
