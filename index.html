@@ -7,36 +7,47 @@
     <title>Campo minato</title>
 
     <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body>
     <nav>
         <div class="nav-sinistro">
-            <img src="img/mobile-logo copia.png" alt="logo">
-            <h1>Campo Minato</h1>
+
+            <img id="logo" src="img/logo maria.png" alt="logo">
+            <h1>Campo Fumato</h1>
+
         </div>
+
+        <div class="nav-centrale">
+            <button id="ricomincia"><i class="fa-solid fa-repeat"></i></button>
+            <button id="arrenditi"><i class="fa-solid fa-flag"></i></button>
+        </div>
+
         <div class="nav-destro">
 
             <select id="difficolta" class="form-select" aria-label="Default select example">
-                <option value="0" selected>Scegli difficoltà</option>
+                <option value="0" selected>Scegli una difficolta...</option>
                 <option value="1">facile</option>
                 <option value="2">difficle</option>
                 <option value="3">brutale</option>
-              </select>
-
+            </select>
+    
             <button id="play-button">Play</button>
+
         </div>
     </nav>
 
     <main>
-        <div id="output-griglia">
-
+        <div  id="output-griglia">
+            <!-- output -->
         </div>
-
     </main>
 
     <footer>
         <div>
-            <span>Made with  by Polo</span>
+            <p>Made with <span> &#x1F61A</span>&#x1F4A8&#x1F4A8&#x1F4A8 by Polo</p>
         </div>
     </footer>
 
